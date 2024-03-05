@@ -1,0 +1,198 @@
+//Bouncing Balls Changing Canvas Color 3-4-2024
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<Script>
+
+//Some Variables
+var canvas;
+var ctx;
+var ballX = 75;
+var ballY = 75;
+var xVelocity = 2;
+var yVelocity = 2;
+var color = "#ccff99";
+var ballWidth = 15;
+var color2= "red";
+var color3= "#464CFF"; //blue
+var color4="purple";
+
+
+
+//Gets Canvas + Sets Framerate
+window.onload = function() {
+  canvas = document.getElementById("test");
+  ctx = canvas.getContext("2d");
+  ctx2 = canvas.getContext("2d");
+  Line1 = canvas.getContext("2d");
+  setInterval(draw,1000/60);
+}
+
+//Draw EVERYTHING
+function draw() {
+
+//Color The Canvas Grey
+
+ctx.fillStyle = color;
+ctx.fillRect(0,0,canvas.width,canvas.height);
+
+//Draw The Ball
+ctx.beginPath();
+ctx.fillStyle = "red";
+ctx.strokeStyle = "#464CFF";//blue
+ctx.lineWidth = 2;
+ctx.arc(ballX,ballY,ballWidth,0,Math.PI*2, true);
+ctx.fill();
+ctx.stroke();
+ctx.closePath();
+ctx.lineWidth = 5;
+ctx.beginPath();
+ctx.moveTo(150, 0);
+ctx.lineTo(150, 500);
+ctx.stroke();
+ctx.closePath();
+
+
+
+//Draw The Ball2
+ctx2.beginPath();
+ctx2.fillStyle = color;
+ctx2.strokeStyle = color;
+ctx2.lineWidth = 2;
+ctx2.line
+ctx2.arc(ballX+150,ballY+10,ballWidth+4,0,Math.PI*2, true);
+ctx2.fill();
+ctx2.stroke();
+ctx2.closePath();
+ctx2.lineWidth = 4;
+ctx2.beginPath();
+ctx2.fillStyle = "black";
+ctx2.strokeStyle = "blue";
+ctx2.lineWidth = 2;
+ctx2.arc(ballX+154,ballY+14,ballWidth,0,Math.PI*2, true);
+ctx2.closePath();
+
+//Draw the line1
+//Line1.beginPath();
+//Line1.fillStyle = "gray";
+//Line1.strokeStyle = "gray";
+//Line1.lineWidth = 2;
+//Line1.arc(ballX+190,ballY+40,ballWidth,0,Math.PI*2, true);
+//Line1.arc(ballX+190,ballY+40,ballWidth,0,Math.PI*2, false);
+
+Line1.fill();
+Line1.stroke();
+Line1.closePath();
+Line1.lineWidth = 4;
+Line1.beginPath();
+Line1.closePath();
+
+
+
+//Change Ball Position
+ballX += xVelocity;
+ballY += yVelocity;
+
+
+//Bounce Ball Off Left + Choose Color
+if(ballX - ballWidth <= 0) {
+  xVelocity = -xVelocity;
+  changeColor();
+}
+
+//Bounce Ball Off Right + Choose Color
+if(ballX + ballWidth >= canvas.width*.5) {
+  xVelocity = -xVelocity;
+  changeColor();
+}
+
+//Bounce Ball Off Top + Choose Color
+if(ballY - ballWidth <= 10) {
+  yVelocity = -yVelocity;
+  changeColor();
+}
+
+//Bounce Ball Off Bottom + Choose Color
+if(ballY + ballWidth >= canvas.height) {
+  yVelocity = -yVelocity;
+  changeColor();
+}
+
+//Randomly Choose Ball Color
+function changeColor() {
+
+var x = Math.random()*10;
+var n = Math.ceil(x);
+var nu = n;
+
+  if(nu == 1) {
+    color = "#FFB1C3";}
+  
+  if(nu == 2) {
+    color = "#F96500";}
+
+  if(nu == 3) {
+    color = "#97F9A4";}
+
+  if(nu == 4) {
+    color = "#FFF900";}
+
+  if(nu == 5) {
+    color = "#FF0068";}
+
+  if(nu == 6) {
+    color = "#A2F900";}
+
+  if(nu == 7) {
+    color = "#7FFFFE";}
+  
+  if(nu == 8) {
+    color = "#376500";}
+
+  if(nu == 9) {
+    color = "#FF26DE";
+    color2= "#FBFBFB";
+    color3= color;
+    ctx.fillStyle = color;
+    //ctx.fillRect(0,0,canvas.width,canvas.height);
+}
+  
+  if(nu == 10) {
+    color = "#F76BA3";
+   color2="red";
+   color3="#464CFF"; //blue
+    }
+}
+
+}
+
+</script>
+
+
+
+</head>
+
+<body>
+
+  <Style>
+#test {
+  display:block;
+  Border: 2px solid blue;
+  margin: auto;
+  Border-radius: 3px;
+}
+
+body {
+  background: radial-gradient(purple 30%, #E28AD1, #A2F900, #FFDC81);
+  //background: linear-gradient(yellow 20%, white);
+}
+  </Style>
+
+  <Canvas id="test" width="300px" height="450px"></canvas>
+  
+
+</body>
+
+</html>
