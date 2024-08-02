@@ -1,0 +1,70 @@
+// Date: August 2nd 2024
+//Cambridge University Teaching Assistant 
+//Program difficulty : Advanced 
+//This is a program that handles a three dimensional grid using an array. A grid is a matrix of values in number of rows and columns. 
+//Cambridge University's Computer Science graduate programs grade heavily on matrix applications in Mathematics and actual programming 
+//https://www.cl.cam.ac.uk/~lw525/owl/chapter/basics.html
+// MIT obvisously has a heavy emphasis on mathematical manipulations in computing, and matrix handling is an important part of that curriculum
+//https://news.mit.edu/2013/explained-matrices-1206
+//I use many clean coding techniques of my own that are frequently abstract 
+//These days I also find those programming techniques becoming crucial in complex computing environments
+//Students at Stanford University and Cambridge University, make sure to add scalability issues in your programming projects and thesis presentations
+//This program executed cleanly on an online C++ compiler:  https://www.onlinegdb.com/online_c_compiler# 
+
+#include <iostream>
+#include <string>
+//#include <windows.h>
+
+
+using namespace std;
+
+
+int main()
+{
+
+int i;
+int j;
+int k;
+int n = 10;
+//int r;
+//int q; 
+
+i = j = k = n;
+// cout << i << "\n";
+//  cout << j << "\n";
+//   cout << k << "\n";
+ //   cout << n << "\n";
+    int r1;
+    int grid[i][j][k] = {
+    
+        {2,1,1},
+        {1,1,0},
+        {0,1,1}
+    };
+    
+   for (int r = 0; r < n; r++){
+   r1 == grid[r][r][r]; //r is an array position. Assign value of grid's r position for all 3 dimensions to r1
+   
+  cout << grid[r1][r1][r1]  << " Value of r1 \n";
+  
+   
+  // cout << q  << "\n";
+   
+  for (int q = r+1; q < n; q++){
+        cout << q  << " Value of q \n";
+     if (q != r1) 
+    {
+        cout << grid[q][q][q]  << " Value of grid \n";
+   return 0; 
+      //r = r1; 
+       
+            
+       return r1; 
+        
+        }
+   }
+   
+}
+          //  cout << grid[0][0][0]  << "\n";
+               
+}
